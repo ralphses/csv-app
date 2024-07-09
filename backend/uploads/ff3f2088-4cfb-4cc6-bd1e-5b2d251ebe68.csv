@@ -1,0 +1,11 @@
+EmployeeID,FirstName,LastName,Email,Phone,Department,Position,Salary,HireDate,ManagerID
+1,John,Doe,john.doe@example.com,555-1234,Engineering,Software Engineer,85000,2019-05-15,5
+2,Jane,Smith,jane.smith@example.com,555-5678,Marketing,Marketing Manager,92000,2018-03-22,7
+3,Michael,Brown,michael.brown@example.com,555-8765,Sales,Sales Representative,78000,2020-07-10,8
+4,Emily,Davis,emily.davis@example.com,555-4321,HR,HR Specialist,67000,2021-01-05,6
+5,Chris,Johnson,chris.johnson@example.com,555-6789,Engineering,Lead Engineer,105000,2017-09-12,0
+6,Ashley,Williams,ashley.williams@example.com,555-3456,HR,HR Manager,88000,2016-11-08,0
+7,Matthew,Jones,matthew.jones@example.com,555-2345,Marketing,Content Strategist,80000,2019-08-19,6
+8,Laura,Garcia,laura.garcia@example.com,555-4567,Sales,Sales Manager,95000,2018-04-14,0
+9,James,Miller,james.miller@example.com,555-7890,Engineering,DevOps Engineer,90000,2020-11-30,5
+10,Sarah,Wilson,sarah.wilson@example.com,555-9876,Finance,Financial Analyst,83000,2021-02-20,7

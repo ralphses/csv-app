@@ -1,0 +1,4 @@
+POST http://localhost:5000/convert
+Content-Type: multipart/form-data
+
+[file=C:/Users/Raphael/Downloads/Compressed/snack/ranting-green-churros/sample.csv,graph_type=bar]

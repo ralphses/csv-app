@@ -1,0 +1,7 @@
+POST https://3a7c-197-210-77-195.ngrok-free.app/convert
+Content-Type: application/json
+
+{
+    "file" : "U3R1ZGVudCBJRCxOYW1lLE1hdGgsU2NpZW5jZSxIaXN0b3J5LEVuZ2xpc2gNCjEsSm9obiBEb2UsODUsOTAsNzgsOTINCjIsSmFuZSBTbWl0aCw3Niw4OCw5NSw4MA0KMyxNaWNoYWVsIEpvaG5zb24sOTAsODIsODcsNzgNCjQsRW1pbHkgRGF2aXMsODIsOTQsOTEsODUNCjUsQ2hyaXMgV2lsc29uLDg4LDg1LDgzLDg5",
+    "graph_type" : "pies"
+}
