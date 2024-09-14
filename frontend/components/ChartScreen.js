@@ -31,10 +31,17 @@ const ChartScreen = ({ route, navigation }) => {
           graph_type: type,
         };
 
-        const response = await axios.post('https://484c-197-210-53-239.ngrok-free.app/convert', payload, {
+        const response = await axios.post('http://127.0.0.1:5000/convert', payload, {
           headers: { 'Content-Type': 'application/json' },
         });
-        setImageUrl(response.data.image_url);
+        // Extract the image URL
+        const imageUrl = response.data.image_url;
+
+        // Replace backslashes with forward slashes
+        const modifiedImageUrl = imageUrl.replace(/\\/g, '/');
+
+        // Set the modified image URL
+        setImageUrl(modifiedImageUrl);
       } catch (error) {
         // console.error('Error creating chart:', error);
         alert('Unsupported file type or format');

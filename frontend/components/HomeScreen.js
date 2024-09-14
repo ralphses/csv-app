@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Platform, TextInput } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import * as DocumentPicker from 'expo-document-picker';
 import * as FileSystem from 'expo-file-system';
@@ -18,22 +18,34 @@ const HomeScreen = ({ navigation }) => {
   const [chartType, setChartType] = useState('bar');
 
   const handleFilePicker = async () => {
-    // Request access to specific file types (CSV in this case)
-    const result = await DocumentPicker.getDocumentAsync();
-
-    if (!result.canceled) {
-      const uri = result.assets[0].uri;
-      const readFile = async () => {
-        try {
+    try {
+      if (Platform.OS === 'web') {
+        // Create and simulate a file input element
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.accept = '.csv';
+        input.onchange = async (e) => {
+          const file = e.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = (event) => {
+              setCsvFile(event.target.result);
+            };
+            reader.readAsText(file);
+          }
+        };
+        input.click();
+      } else {
+        // For native
+        const result = await DocumentPicker.getDocumentAsync({ type: 'text/csv' });
+        if (!result.canceled) {
+          const uri = result.assets[0].uri;
           const contents = await FileSystem.readAsStringAsync(uri, { encoding: FileSystem.EncodingType.UTF8 });
           setCsvFile(contents);
-          // console.log("CSV contents:", contents);
-        } catch (error) {
-          console.error("Error reading file:", error);
         }
-      };
-
-      readFile();
+      }
+    } catch (error) {
+      console.error("Error reading file:", error);
     }
   };
 
@@ -61,7 +73,7 @@ const HomeScreen = ({ navigation }) => {
         </TouchableOpacity>
 
         {/* Selected File Display */}
-        {csvFile && <Text style={styles.fileText}>File Selected: {csvFile.name}</Text>}
+        {csvFile && <Text style={styles.fileText}>File Selected</Text>}
 
         {/* Chart Type Picker */}
         <View style={styles.pickerContainer}>
